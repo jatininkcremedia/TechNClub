@@ -1,0 +1,118 @@
+<script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
+  <script>
+
+    window.googletag = window.googletag || {cmd: []};
+    googletag.cmd.push(function () {
+
+      var REFRESH_KEY = 'refresh';
+      var REFRESH_VALUE = 'true';
+
+      var Responsive_Ad = googletag.sizeMapping().addSize([992, 0], [[728, 90]]).addSize([728, 0], [[300, 250]]).addSize([320, 0], [[300, 250]]).addSize([0, 0], [[320, 50], [1, 1]]).build();
+
+      // var Sticky_Ad = googletag.sizeMapping().addSize([992, 0], [[728, 90]]).addSize([768, 0], [[320, 50]]).addSize([320, 0], [[320, 50]]).addSize([0, 0], [[320, 50], [1, 1]]).build();
+
+      googletag.defineSlot('/22697233968/Technclub/leaderboard', [[728, 90], [300, 250]], 'div-gpt-leaderboard').defineSizeMapping(Responsive_Ad).addService(googletag.pubads());
+      googletag.defineSlot('/22697233968/Technclub/ATF', [300, 250], 'div-gpt-ATF').defineSizeMapping(Responsive_Ad).addService(googletag.pubads());
+      googletag.defineSlot('/22697233968/Technclub/MTF_1', [300, 250], 'div-gpt-MTF_1').defineSizeMapping(Responsive_Ad).addService(googletag.pubads());
+      googletag.defineSlot('/22697233968/Technclub/MTF_2', [300, 250], 'div-gpt-MTF_2').defineSizeMapping(Responsive_Ad).addService(googletag.pubads());
+      // googletag.defineSlot('/22697233968/Technclub/bottomoverlay', [300, 250], 'div-gpt-bottomsticky').defineSizeMapping(Sticky_Ad).setTargeting(REFRESH_KEY, REFRESH_VALUE).addService(googletag.pubads());
+      googletag.defineSlot('/22697233968/Technclub/RSB_1', [300, 600], 'div-gpt-RSB_1').addService(googletag.pubads());
+
+      var SECONDS_TO_WAIT_AFTER_VIEWABILITY = 33;
+      googletag.pubads().addEventListener('impressionViewable', function (event) {
+        var slot = event.slot;
+        if (slot.getTargeting(REFRESH_KEY).indexOf(REFRESH_VALUE) > -1) {
+          setTimeout(function () {
+            googletag.pubads().refresh([slot]);
+          }, SECONDS_TO_WAIT_AFTER_VIEWABILITY * 1000);
+        }
+      });
+      googletag.pubads().enableSingleRequest();
+      googletag.enableServices();
+    });
+  </script>
+
+
+<!--  <style>-->
+<!--    .EujfCqUhLFJr98nr {-->
+<!--      display: flex;-->
+<!--      align-items: center;-->
+<!--      justify-content: center;-->
+<!--      background-color: #FFFFFF;-->
+<!--      height: 90px;-->
+<!--      position: fixed;-->
+<!--      left: 0;-->
+<!--      bottom: 0;-->
+<!--      width: 100%;-->
+<!--      text-align: center;-->
+<!--      z-index: 99999;;-->
+<!--    }-->
+
+<!--    @media only screen and (max-width: 600px) {-->
+<!--      .EujfCqUhLFJr98nr {-->
+<!--        height: 50px !important;-->
+<!--      }-->
+<!--    }-->
+<!--  </style>-->
+<!--  <div class='EujfCqUhLFJr98nr'>-->
+<!--    <div id='div-gpt-bottomsticky'>-->
+<!--      <script>googletag.cmd.push(function () {-->
+<!--        googletag.display('div-gpt-bottomsticky')-->
+<!--      });</script>-->
+<!--    </div>-->
+<!--  </div>-->
+
+  --------------------------------------------------------------------------------------
+
+  Body
+
+  Leaderboard
+
+  <div id='div-gpt-leaderboard'>
+  <script>
+    googletag.cmd.push(function () {
+      googletag.display('div-gpt-leaderboard');
+    });
+  </script>
+</div>
+
+
+ATF
+
+<div id='div-gpt-ATF'>
+  <script>
+    googletag.cmd.push(function () {
+      googletag.display('div-gpt-ATF');
+    });
+  </script>
+</div>
+
+
+MTF
+
+<div id='div-gpt-MTF_1'>
+  <script>
+    googletag.cmd.push(function () {
+      googletag.display('div-gpt-MTF_1');
+    });
+  </script>
+</div>
+
+<div id='div-gpt-MTF_2'>
+  <script>
+    googletag.cmd.push(function () {
+      googletag.display('div-gpt-MTF_2');
+    });
+  </script>
+</div>
+
+
+SideBar
+
+<div id='div-gpt-RSB_1' style="height: 600px;width: 300px;">
+  <script>
+    googletag.cmd.push(function () {
+      googletag.display('div-gpt-RSB_1');
+    });
+  </script>
+</div>
