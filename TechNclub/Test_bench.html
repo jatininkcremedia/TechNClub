@@ -1,197 +1,132 @@
-<!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
+  <meta charSet="UTF-8"/>
   <title>TechNclub Head Tag</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-  <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
   <script>
+    var googletag = googletag || {};
+    googletag.cmd = googletag.cmd || [];
+    (function () {
+      var gads = document.createElement("script");
+      gads.async = true;
+      gads.type = "text/javascript";
+      var useSSL = "https:" == document.location.protocol;
+      gads.src =
+        (useSSL ? "https:" : "http:") +
+        "//www.googletagservices.com/tag/js/gpt.js";
+      var node = document.getElementsByTagName("script")[0];
+      node.parentNode.insertBefore(gads, node);
+    })();
+  </script>
 
-    window.googletag = window.googletag || {cmd: []};
-    googletag.cmd.push(function () {
+  <script>
+    var num_inserted_banners = 0;
 
-      var REFRESH_KEY = 'refresh';
-      var REFRESH_VALUE = 'true';
+    function loadBanner(slotName, slotSizes, containerId, refresh, responsive) {
+      var containerDiv = document.createElement("div");
+      containerDiv.id = containerId;
+      containerDiv.className = "adsinnov_ads_container";
+      var container_divs = document.querySelectorAll(".adsInnovads_container");
+      container_divs[num_inserted_banners].append(containerDiv);
 
-      var Responsive_Ad = googletag.sizeMapping().addSize([992, 0], [[728, 90]]).addSize([768, 0], [[300, 250]]).addSize([320, 0], [[300, 250]]).addSize([0, 0], [[320, 50], [1, 1]]).build();
 
-      var Sticky_Ad = googletag.sizeMapping().addSize([992, 0], [[728, 90]]).addSize([768, 0], [[320, 50]]).addSize([320, 0], [[320, 50]]).addSize([0, 0], [[320, 50], [1, 1]]).build();
+      googletag.cmd.push(function () {
 
-      googletag.defineSlot('/22697233968/Technclub/leaderboard', [[728, 90], [300, 250]], 'div-gpt-leaderboard').defineSizeMapping(Responsive_Ad).addService(googletag.pubads());
-      googletag.defineSlot('/22697233968/Technclub/ATF', [300, 250], 'div-gpt-ATF').addService(googletag.pubads());
-      googletag.defineSlot('/22697233968/Technclub/MTF_1', [300, 250], 'div-gpt-MTF_1').addService(googletag.pubads());
-      googletag.defineSlot('/22697233968/Technclub/MTF_2', [300, 250], 'div-gpt-MTF_2').setTargeting(REFRESH_KEY, REFRESH_VALUE).addService(googletag.pubads());
-      googletag.defineSlot('/22697233968/Technclub/bottomoverlay', [300, 250], 'div-gpt-bottomsticky').defineSizeMapping(Sticky_Ad).setTargeting(REFRESH_KEY, REFRESH_VALUE).addService(googletag.pubads());
-      googletag.defineSlot('/22697233968/Technclub/RSB_1', [300, 600], 'div-gpt-RSB_1').addService(googletag.pubads());
+        var REFRESH_KEY = 'refresh';
+        var REFRESH_VALUE = 'true';
 
-      var SECONDS_TO_WAIT_AFTER_VIEWABILITY = 33;
-      googletag.pubads().addEventListener('impressionViewable', function (event) {
-        var slot = event.slot;
-        if (slot.getTargeting(REFRESH_KEY).indexOf(REFRESH_VALUE) > -1) {
-          setTimeout(function () {
-            googletag.pubads().refresh([slot]);
-          }, SECONDS_TO_WAIT_AFTER_VIEWABILITY * 1000);
+        var Responsive_Ad = googletag.sizeMapping().addSize([992, 0], [[728, 90]]).addSize([768, 0], [[300, 250]]).addSize([320, 0], [[300, 250]]).addSize([0, 0], [[320, 50], [1, 1]]).build();
+
+        var Sticky_Ad = googletag.sizeMapping().addSize([992, 0], [[728, 90]]).addSize([768, 0], [[320, 50]]).addSize([320, 0], [[320, 50]]).addSize([0, 0], [[320, 50], [1, 1]]).build();
+
+        if (typeof responsive !== "undefined" && refresh == false) {
+
+          if (responsive == "Responsive_Ad") {
+            googletag.defineSlot(slotName, slotSizes, containerId).defineSizeMapping(Responsive_Ad).addService(googletag.pubads());
+            console.log("r = false & re = true");
+          } else {
+
+            googletag.defineSlot(slotName, slotSizes, containerId).defineSizeMapping(Sticky_Ad).addService(googletag.pubads());
+            console.log("r = false & re = true");
+          }
+
+        } else if (typeof responsive !== "undefined" && refresh == true) {
+          if (responsive == "Responsive_Ad") {
+            googletag.defineSlot(slotName, slotSizes, containerId).setTargeting(REFRESH_KEY, REFRESH_VALUE).defineSizeMapping(Responsive_Ad).addService(googletag.pubads());
+            console.log("r = true & re = true");
+          } else {
+
+            googletag.defineSlot(slotName, slotSizes, containerId).setTargeting(REFRESH_KEY, REFRESH_VALUE).defineSizeMapping(Sticky_Ad).addService(googletag.pubads());
+            console.log("r = true & re = true");
+          }
+
+        } else if (refresh == true && responsive == "undefined") {
+          googletag.defineSlot(slotName, slotSizes, containerId).setTargeting(REFRESH_KEY, REFRESH_VALUE).addService(googletag.pubads());
+          console.log("r = true & re = undefined");
+        } else {
+          googletag
+            .defineSlot(slotName, slotSizes, containerId)
+            .addService(googletag.pubads());
+          console.log("last else");
         }
+
+        var SECONDS_TO_WAIT_AFTER_VIEWABILITY = 6;
+        googletag.pubads().addEventListener('impressionViewable', function (event) {
+          var slot = event.slot;
+          if (slot.getTargeting(REFRESH_KEY).indexOf(REFRESH_VALUE) > -1) {
+            setTimeout(function () {
+              googletag.pubads().refresh([slot]);
+            }, SECONDS_TO_WAIT_AFTER_VIEWABILITY * 1000);
+          }
+        });
+        googletag.pubads().enableSingleRequest();
+        googletag.enableServices();
+
       });
-      googletag.pubads().enableSingleRequest();
-      googletag.enableServices();
-    });
+
+
+      googletag.cmd.push(function () {
+        googletag.display(containerId);
+      });
+
+      num_inserted_banners++;
+    }
   </script>
 
-
-  <style>
-    .EujfCqUhLFJr98nr {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background-color: #FFFFFF;
-      height: 90px;
-      position: fixed;
-      left: 0;
-      bottom: 0;
-      width: 100%;
-      text-align: center;
-      z-index: 99999;;
-    }
-
-    @media only screen and (max-width: 600px) {
-      .EujfCqUhLFJr98nr {
-        height: 50px !important;
-      }
-    }
-  </style>
-  <div class='EujfCqUhLFJr98nr'>
-    <div id='div-gpt-bottomsticky'>
-      <script>googletag.cmd.push(function () {
-        googletag.display('div-gpt-bottomsticky')
-      });</script>
-    </div>
-  </div>
 </head>
+
 <body>
+<p>
+  What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing and
+  typesetting industry. Lorem Ipsum has been the industry's standard dummy
+  text ever since the 1500s, when an unknown printer took a galley of type
+  and scrambled it to make a type specimen book. It has survived not only
+  five centuries, but also the leap into electronic typesetting, remaining
+  essentially unchanged. It was popularised in the 1960s with the release of
+  Letraset sheets containing Lorem Ipsum passages, and more recently with
+  desktop publishing software like Aldus PageMaker including versions of
+  Lorem Ipsum.
+</p>
 
-<p>What is Lorem Ipsum?
-  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
-  standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a
-  type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining
-  essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum
-  passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-  <!-- /21928950349,21806813315/gamertweak.com_300x250_320x50_1 -->
-<div id='div-gpt-leaderboard'>
+<div class="adsInnovads_container">
   <script>
-    googletag.cmd.push(function () {
-      googletag.display('div-gpt-leaderboard');
-    });
+    loadBanner(
+      "/21742552194/NueGamers/MTF_3",
+      [300, 250],
+      "adsinnov-" + num_inserted_banners, false, "Responsive_Ad"
+    );
   </script>
 </div>
 
-
-
-<div id='div-gpt-RSB_1' style="height: 600px;width: 300px;">
-  <script>
-    googletag.cmd.push(function () {
-      googletag.display('div-gpt-RSB_1');
-    });
-  </script>
 </div>
-
-Why do we use it?
-It is a long established fact that a reader will be distracted by the readable content of a page when looking at its
-layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using
-'Content here, content here', making it look like readable English. Many desktop publishing packages and web page
-editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites
-still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose
-(injected humour and the like).
-
-
-Where does it come from?
-Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature
-from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia,
-looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of
-the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33
-of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise
-on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit
-amet..", comes from a line in section 1.10.32.
-
-The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and
-1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by
-English versions from the 1914 translation by H. Rackham.
-
-Where can I get some?
-There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form,
-by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of
-Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum
-generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the
-Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to
-generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition,
-injected humour, or non-characteristic words etc.</p>
-
-
-<p>What is Lorem Ipsum?
-  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
-  standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a
-  type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining
-  essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum
-  passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-
-  Why do we use it?
-  It is a long established fact that a reader will be distracted by the readable content of a page when looking at its
-  layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to
-  using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web
-  page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web
-  sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on
-  purpose (injected humour and the like).
-
-<div id='div-gpt-ATF'>
-  <script>
-    googletag.cmd.push(function () {
-      googletag.display('div-gpt-ATF');
-    });
-  </script>
-</div>
-Where does it come from?
-Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature
-from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia,
-looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of
-the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33
-of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise
-on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit
-amet..", comes from a line in section 1.10.32.
-
-The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and
-1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by
-English versions from the 1914 translation by H. Rackham.
-
-Where can I get some?
-There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form,
-by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of
-Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum
-generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the
-Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to
-generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition,
-injected humour, or non-characteristic words etc.</p>
-
-<div id='div-gpt-MTF_1'>
-  <script>
-    googletag.cmd.push(function () {
-      googletag.display('div-gpt-MTF_1');
-    });
-  </script>
-</div>
-
-<div id='div-gpt-MTF_2'>
-  <script>
-    googletag.cmd.push(function () {
-      googletag.display('div-gpt-MTF_2');
-    });
-  </script>
-</div>
-
+</p>
+<p>
 </body>
+<script>
+  var x = document.querySelectorAll("div[ad-slot]");
+  console.log(x);
+</script>
 
 </html>
-
-
-
-
