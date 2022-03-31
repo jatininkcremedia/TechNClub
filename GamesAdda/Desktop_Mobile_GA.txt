@@ -1,0 +1,226 @@
+<-----------------  Head Ad Code ----------------------------------------------->
+
+<script>
+    var googletag = googletag || {};
+    googletag.cmd = googletag.cmd || [];
+    (function () {
+      var gads = document.createElement("script");
+      gads.async = true;
+      gads.type = "text/javascript";
+      var useSSL = "https:" == document.location.protocol;
+      gads.src =
+        (useSSL ? "https:" : "http:") +
+        "//www.googletagservices.com/tag/js/gpt.js";
+      var node = document.getElementsByTagName("script")[0];
+      node.parentNode.insertBefore(gads, node);
+    })();
+  </script>
+
+  <script>
+    (function () {
+      var REFRESH_KEY = "refresh";
+      var REFRESH_VALUE = "true";
+      var SECONDS_TO_WAIT_AFTER_VIEWABILITY = 30;
+
+      function setupGoogleTag() {
+        googletag
+          .pubads()
+          .addEventListener("impressionViewable", function (event) {
+            var slot = event.slot;
+            if (slot.getTargeting(REFRESH_KEY).indexOf(REFRESH_VALUE) > -1) {
+              setTimeout(function () {
+                googletag.pubads().refresh([slot]);
+              }, SECONDS_TO_WAIT_AFTER_VIEWABILITY * 1000);
+            }
+          });
+        googletag.pubads().enableSingleRequest();
+        googletag.enableServices();
+      }
+
+      googletag.cmd.push(function () {
+        setupGoogleTag();
+      });
+
+      window._num_inserted_banners = 0;
+
+      window.loadBanner = function (
+        slotName,
+        slotSizes,
+        containerId,
+        refresh,
+        adType
+      ) {
+        var containerDivs = document.querySelectorAll(
+          ".adsInnovads_container"
+        );
+        var containerDiv = document.createElement("div");
+        containerDiv.id = containerId;
+        containerDiv.className = "adsinnov_ads_container";
+
+        containerDivs[_num_inserted_banners].append(containerDiv);
+
+        googletag.cmd.push(function () {
+          var sizeMap = {
+            Responsive_Ad: googletag
+              .sizeMapping()
+              .addSize([992, 0], [[728, 90]])
+              .addSize([768, 0], [[300, 250]])
+              .addSize([320, 0], [[300, 250]])
+              .addSize(
+                [0, 0],
+                [
+                  [320, 50],
+                  [1, 1],
+                ]
+              )
+              .build(),
+            Sticky_Ad: googletag
+              .sizeMapping()
+              .addSize([992, 0], [[728, 90]])
+              .addSize([768, 0], [[320, 50]])
+              .addSize([320, 0], [[320, 50]])
+              .addSize(
+                [0, 0],
+                [
+                  [320, 50],
+                  [1, 1],
+                ]
+              )
+              .build(),
+          };
+
+          var adSizeMapping = sizeMap[adType];
+          var slot = googletag.defineSlot(slotName, slotSizes, containerId);
+
+          if (adSizeMapping) {
+            slot.defineSizeMapping(adSizeMapping);
+          }
+
+          if (refresh === true) {
+            slot.setTargeting(REFRESH_KEY, REFRESH_VALUE);
+          }
+
+          slot.addService(googletag.pubads());
+          googletag.display(containerId);
+        });
+
+        _num_inserted_banners++;
+      };
+    })();
+  </script>
+
+
+<-----------------  Body Ad Code ----------------------------------------------->
+
+  Leaderboard
+
+  <div class="adsInnovads_container">
+      <script>
+        loadBanner(
+          "/22697233968/gamesadda/leaderboard",
+          [300, 250],
+          "adsinnov-" + _num_inserted_banners, false, "Responsive_Ad"
+        );
+      </script>
+  </div>
+
+  ATF
+    <div class="adsInnovads_container">
+      <script>
+        loadBanner(
+          "/22697233968/gamesadda/ATF",
+          [300, 250],
+          "adsinnov-" + _num_inserted_banners, false, "Responsive_Ad"
+        );
+      </script>
+    </div>
+
+   MTF_1
+    <div class="adsInnovads_container">
+      <script>
+        loadBanner(
+          "/22697233968/gamesadda/MTF_1",
+          [300, 250],
+          "adsinnov-" + _num_inserted_banners, false, "Responsive_Ad"
+        );
+      </script>
+    </div>
+
+   MTF_2
+    <div class="adsInnovads_container">
+      <script>
+        loadBanner(
+          "/22697233968/gamesadda/MTF_2",
+          [300, 250],
+          "adsinnov-" + _num_inserted_banners, false, "Responsive_Ad"
+        );
+      </script>
+    </div>
+
+   MTF_3
+    <div class="adsInnovads_container">
+      <script>
+        loadBanner(
+          "/22697233968/gamesadda/MTF_3",
+          [300, 250],
+          "adsinnov-" + _num_inserted_banners, false, "Responsive_Ad"
+        );
+      </script>
+    </div>
+
+   MTF_4
+    <div class="adsInnovads_container">
+      <script>
+        loadBanner(
+          "/22697233968/gamesadda/MTF_4",
+          [300, 250],
+          "adsinnov-" + _num_inserted_banners, false, "Responsive_Ad"
+        );
+      </script>
+    </div>
+
+    MTF_5
+    <div class="adsInnovads_container">
+      <script>
+        loadBanner(
+          "/22697233968/gamesadda/MTF_5",
+          [300, 250],
+          "adsinnov-" + _num_inserted_banners, false, "Responsive_Ad"
+        );
+      </script>
+    </div>
+
+  Bottom Overlay
+
+   <style>
+    .EujfCqUhLFJr98nr {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #FFFFFF;
+      height: 90px;
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      text-align: center;
+      z-index: 99999;;
+    }
+
+    @media only screen and (max-width: 600px) {
+      .EujfCqUhLFJr98nr {
+        height: 50px !important;
+      }
+    }
+  </style>
+  <div class='EujfCqUhLFJr98nr'>
+    <div class="adsInnovads_container">
+      <script>
+        loadBanner(
+          "/22697233968/gamesadda/bottomoverlay",
+          [300, 250],
+          "adsinnov-" + _num_inserted_banners, true, "Sticky_Ad"
+        );
+      </script>
+    </div>
+  </div>
