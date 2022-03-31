@@ -1,11 +1,6 @@
-<html lang="en">
+<-----------------  Head Ad Code ----------------------------------------------->
 
-<head>
-  <meta charSet="UTF-8"/>
-  <title>TechNclub Head Tag</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
-  <script>
+<script>
     var googletag = googletag || {};
     googletag.cmd = googletag.cmd || [];
     (function () {
@@ -114,7 +109,35 @@
     })();
   </script>
 
-  <style>
+
+<-----------------  Body Ad Code ----------------------------------------------->
+
+  Leaderboard
+
+  <div class="adsInnovads_container">
+      <script>
+        loadBanner(
+          "/22697233968/Technclub/leaderboard",
+          [300, 250],
+          "adsinnov-" + _num_inserted_banners, false, "Responsive_Ad"
+        );
+      </script>
+  </div>
+
+  ATF
+    <div class="adsInnovads_container">
+      <script>
+        loadBanner(
+          "/22697233968/Technclub/ATF",
+          [300, 250],
+          "adsinnov-" + _num_inserted_banners, false, "Responsive_Ad"
+        );
+      </script>
+  </div>
+
+  Bottom Overlay
+
+   <style>
     .EujfCqUhLFJr98nr {
       display: flex;
       align-items: center;
@@ -139,45 +162,10 @@
     <div class="adsInnovads_container">
       <script>
         loadBanner(
-          "/21742552194/NueGamers/MTF_3",
+          "/22697233968/Technclub/bottomoverlay",
           [300, 250],
           "adsinnov-" + _num_inserted_banners, true, "Sticky_Ad"
         );
       </script>
     </div>
   </div>
-
-</head>
-
-<body>
-<p>
-  What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing and
-  typesetting industry. Lorem Ipsum has been the industry's standard dummy
-  text ever since the 1500s, when an unknown printer took a galley of type
-  and scrambled it to make a type specimen book. It has survived not only
-  five centuries, but also the leap into electronic typesetting, remaining
-  essentially unchanged. It was popularised in the 1960s with the release of
-  Letraset sheets containing Lorem Ipsum passages, and more recently with
-  desktop publishing software like Aldus PageMaker including versions of
-  Lorem Ipsum.
-</p>
-
-<div class="adsInnovads_container">
-  <script>
-    loadBanner(
-      "/21742552194/NueGamers/MTF_3",
-      [300, 250],
-      "adsinnov-" + _num_inserted_banners, false, "Responsive_Ad"
-    );
-  </script>
-</div>
-
-</div>
-</p>
-<p>
-</body>
-
-</html>
-
-
-

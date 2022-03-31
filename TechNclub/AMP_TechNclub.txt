@@ -1,0 +1,22 @@
+
+
+AMP Leaderboard
+
+<amp-ad width=300 height=250
+    type="doubleclick"
+    data-slot="/22697233968/AMP_Technclub/leaderboard">
+</amp-ad>
+
+AMP ATF
+
+<amp-ad width=300 height=250
+    type="doubleclick"
+    data-slot="/22697233968/AMP_Technclub/ATF">
+</amp-ad>
+
+AMP BottomOverlay
+
+<amp-ad width=300 height=250
+    type="doubleclick"
+    data-slot="/22697233968/AMP_Technclub/bottomoverlay">
+</amp-ad>
