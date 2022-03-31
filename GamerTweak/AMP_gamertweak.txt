@@ -1,0 +1,57 @@
+
+
+AMP Leaderboard
+
+<amp-ad width=300 height=250
+    type="doubleclick"
+    data-slot="/22697233968/AMP_gamertweak/leaderboard">
+</amp-ad>
+
+AMP ATF
+
+<amp-ad width=300 height=250
+    type="doubleclick"
+    data-slot="/22697233968/AMP_gamertweak/ATF">
+</amp-ad>
+
+AMP MTF_1
+
+<amp-ad width=300 height=250
+    type="doubleclick"
+    data-slot="/22697233968/AMP_gamertweak/MTF_1">
+</amp-ad>
+
+AMP MTF_2
+
+<amp-ad width=300 height=250
+    type="doubleclick"
+    data-slot="/22697233968/AMP_gamertweak/MTF_2">
+</amp-ad>
+
+AMP MTF_3
+
+<amp-ad width=300 height=250
+    type="doubleclick"
+    data-slot="/22697233968/AMP_gamertweak/MTF_3">
+</amp-ad>
+
+AMP MTF_4
+
+<amp-ad width=300 height=250
+    type="doubleclick"
+    data-slot="/22697233968/AMP_gamertweak/MTF_4">
+</amp-ad>
+
+AMP BTF
+
+<amp-ad width=300 height=250
+    type="doubleclick"
+    data-slot="/22697233968/AMP_gamertweak/BTF">
+</amp-ad>
+
+AMP BottomOverlay
+
+<amp-ad width=300 height=250
+    type="doubleclick"
+    data-slot="/22697233968/AMP_gamertweak/bottomoverlay">
+</amp-ad>
