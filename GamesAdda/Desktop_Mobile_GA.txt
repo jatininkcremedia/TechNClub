@@ -1,77 +1,96 @@
-<-----------------  Head Ad Code ----------------------------------------------->
+<--------------------------------------------------------  Head Ad Code ----------------------------------------------->
+   <script>
+      var googletag = googletag || {};
+      googletag.cmd = googletag.cmd || [];
+      (function () {
+        var gads = document.createElement("script");
+        gads.async = true;
+        gads.type = "text/javascript";
+        var useSSL = "https:" == document.location.protocol;
+        gads.src =
+          (useSSL ? "https:" : "http:") +
+          "//www.googletagservices.com/tag/js/gpt.js";
+        var node = document.getElementsByTagName("script")[0];
+        node.parentNode.insertBefore(gads, node);
+      })();
+    </script>
 
-<script>
-    var googletag = googletag || {};
-    googletag.cmd = googletag.cmd || [];
-    (function () {
-      var gads = document.createElement("script");
-      gads.async = true;
-      gads.type = "text/javascript";
-      var useSSL = "https:" == document.location.protocol;
-      gads.src =
-        (useSSL ? "https:" : "http:") +
-        "//www.googletagservices.com/tag/js/gpt.js";
-      var node = document.getElementsByTagName("script")[0];
-      node.parentNode.insertBefore(gads, node);
-    })();
-  </script>
+    <script>
+      (function () {
+        var REFRESH_KEY = "refresh";
+        var REFRESH_VALUE = "true";
+        var SECONDS_TO_WAIT_AFTER_VIEWABILITY = 30;
 
-  <script>
-    (function () {
-      var REFRESH_KEY = "refresh";
-      var REFRESH_VALUE = "true";
-       var SECONDS_TO_WAIT_AFTER_VIEWABILITY = Math.floor(Math.random() * (35 - 25 + 1)) + 25;
-
-      function setupGoogleTag() {
-        googletag
-          .pubads()
-          .addEventListener("impressionViewable", function (event) {
-            var slot = event.slot;
-            if (slot.getTargeting(REFRESH_KEY).indexOf(REFRESH_VALUE) > -1) {
-              setTimeout(function () {
-                googletag.pubads().refresh([slot]);
-              }, SECONDS_TO_WAIT_AFTER_VIEWABILITY * 1000);
-            }
-          });
-        googletag.pubads().enableSingleRequest();
-        googletag.enableServices();
-      }
-
-      googletag.cmd.push(function () {
-        setupGoogleTag();
-      });
-
-      window._num_inserted_banners = 0;
-
-      window.loadBanner = function (
-        slotName,
-        slotSizes,
-        containerId,
-        refresh,
-        adType
-      ) {
-        var containerDivs = document.querySelectorAll(
-          ".adsInnovads_container"
-        );
-        var containerDiv = document.createElement("div");
-        containerDiv.id = containerId;
-        containerDiv.className = "adsinnov_ads_container";
-
-        containerDivs[_num_inserted_banners].append(containerDiv);
+        function setupGoogleTag() {
+          googletag
+            .pubads()
+            .addEventListener("impressionViewable", function (event) {
+              var slot = event.slot;
+              if (slot.getTargeting(REFRESH_KEY).indexOf(REFRESH_VALUE) > -1) {
+                setTimeout(function () {
+                  googletag.pubads().refresh([slot]);
+                }, SECONDS_TO_WAIT_AFTER_VIEWABILITY * 1000);
+              }
+            });
+          googletag.pubads().enableSingleRequest();
+          googletag.enableServices();
+        }
 
         googletag.cmd.push(function () {
-          var sizeMap = {
-            Responsive_Ad: googletag
-              .sizeMapping()
-              .addSize([992, 0], [[728, 90]])
-              .addSize([768, 0], [[300, 250]])
-              .addSize([320, 0], [[300, 250]])
-              .addSize(
-                [0, 0],
-                [
-                  [320, 50],
-                  [1, 1],
-                ]
+          setupGoogleTag();
+        });
+
+        window._num_inserted_banners = 0;
+
+        window.loadBanner = function (
+          slotName,
+          slotSizes,
+          containerId,
+          refresh,
+          adType
+        ) {
+          const containerDiv = document.createElement("div");
+          containerDiv.id = containerId;
+          containerDiv.className = "adsinnov_ads_container";
+
+          function get_Id_form_div(div_ids) {
+            try {
+              const get_div_Id = document.getElementById(div_ids);
+              get_div_Id.append(containerDiv);
+              get_div_Id.removeAttribute('id');
+            } catch (err) {
+              console.log(err.message);
+            }
+          }
+
+          get_Id_form_div("ad-1");
+          get_Id_form_div("ad-2");
+          get_Id_form_div("ad-3");
+          get_Id_form_div("ad-4");
+          get_Id_form_div("ad-5");
+          get_Id_form_div("ad-6");
+          get_Id_form_div("ad-7");
+          get_Id_form_div("ad-8");
+          get_Id_form_div("ad-9");
+          get_Id_form_div("ad-10");
+          get_Id_form_div("ad-11");
+          get_Id_form_div("ad-12");
+          get_Id_form_div("ad-13");
+          get_Id_form_div("ad-14");
+
+          googletag.cmd.push(function () {
+            var sizeMap = {
+              Responsive_Ad: googletag
+                .sizeMapping()
+                .addSize([992, 0], [[728, 90]])
+                .addSize([768, 0], [[300, 250]])
+                .addSize([320, 0], [[300, 250]])
+                .addSize(
+                  [0, 0],
+                  [
+                    [320, 50],
+                    [1, 1],
+                  ]
               )
               .build(),
             Sticky_Ad: googletag
@@ -108,27 +127,12 @@
       };
     })();
   </script>
-<script>
-    window.googletag = window.googletag || {cmd: []};
-    googletag.cmd.push(function () {
-
-      var Sidebar_Ad = googletag.sizeMapping().addSize([1670, 0], [[300, 600]]).addSize([1400, 0], [[160, 600]]).addSize([1350, 0], [[120, 600]]).addSize([992, 0], [[]]).build();
-
-      googletag.defineSlot('/22697233968/gamesadda/RSB_1', [300, 250], 'div-gpt-ad-GA-1').addService(googletag.pubads());
-      googletag.defineSlot('/22697233968/gamesadda/RSB_2', [300, 250], 'div-gpt-ad-GA-2').addService(googletag.pubads());
-      googletag.defineSlot('/22697233968/gamesadda/RSB_3', [300, 250], 'div-gpt-ad-GA-3').addService(googletag.pubads());
-      googletag.defineSlot('/22697233968/gamesadda/RSB_4', [300, 250], 'div-gpt-ad-GA-4').addService(googletag.pubads());
-      googletag.defineSlot('/22697233968/gamesadda/LSB_Sticky', [300, 250], 'div-gpt-ad-GA-5').defineSizeMapping(Sidebar_Ad).addService(googletag.pubads());
-      googletag.defineSlot('/22697233968/gamesadda/RSB_Sticky', [300, 250], 'div-gpt-ad-GA-6').defineSizeMapping(Sidebar_Ad).addService(googletag.pubads());
-      googletag.enableServices();
-    });
-  </script>
-
-<-----------------  Body Ad Code ----------------------------------------------->
+  <--------------------------------------------  Head Ad Code Closing ----------------------------------------------->
+  <----------------------------------------------  Body Ad Code ------------------------------------------------------->
 
   Leaderboard
 
-  <div class="adsInnovads_container">
+  <div id="ad-1" class="adsInnovads_container">
       <script>
         loadBanner(
           "/22697233968/gamesadda/leaderboard",
@@ -139,7 +143,7 @@
   </div>
 
   ATF
-    <div class="adsInnovads_container">
+    <div id="ad-2" class="adsInnovads_container">
       <script>
         loadBanner(
           "/22697233968/gamesadda/ATF",
@@ -150,7 +154,7 @@
     </div>
 
    MTF_1
-    <div class="adsInnovads_container">
+    <div id="ad-3" class="adsInnovads_container">
       <script>
         loadBanner(
           "/22697233968/gamesadda/MTF_1",
@@ -161,7 +165,7 @@
     </div>
 
    MTF_2
-    <div class="adsInnovads_container">
+    <div id="ad-4" class="adsInnovads_container">
       <script>
         loadBanner(
           "/22697233968/gamesadda/MTF_2",
@@ -172,7 +176,7 @@
     </div>
 
    MTF_3
-    <div class="adsInnovads_container">
+    <div id="ad-5" class="adsInnovads_container">
       <script>
         loadBanner(
           "/22697233968/gamesadda/MTF_3",
@@ -183,7 +187,7 @@
     </div>
 
    MTF_4
-    <div class="adsInnovads_container">
+    <div id="ad-6" class="adsInnovads_container">
       <script>
         loadBanner(
           "/22697233968/gamesadda/MTF_4",
@@ -194,7 +198,7 @@
     </div>
 
     MTF_5
-    <div class="adsInnovads_container">
+    <div id="ad-7" class="adsInnovads_container">
       <script>
         loadBanner(
           "/22697233968/gamesadda/MTF_5",
@@ -227,7 +231,7 @@
       }
     }
   </style>
-  <div class='EujfCqUhLFJr98nr'>
+  <div id="ad-8" class='EujfCqUhLFJr98nr'>
     <div class="adsInnovads_container">
       <script>
         loadBanner(
@@ -240,56 +244,69 @@
   </div>
 
 Sidebar - 1
-<div id='div-gpt-ad-GA-1'>
+<div id="ad-9" class="adsInnovads_container">
   <script>
-    googletag.cmd.push(function () {
-      googletag.display('div-gpt-ad-GA-1');
-    });
+    loadBanner(
+      "/22697233968/gamesadda/RSB_1",
+      [300, 250],
+      "adsinnov-" + _num_inserted_banners, false,
+    );
   </script>
 </div>
 
 Sidebar - 2
-<div id='div-gpt-ad-GA-2'>
+<div id="ad-10" class="adsInnovads_container">
   <script>
-    googletag.cmd.push(function () {
-      googletag.display('div-gpt-ad-GA-2');
-    });
+    loadBanner(
+      "/22697233968/gamesadda/RSB_2",
+      [300, 250],
+      "adsinnov-" + _num_inserted_banners, false,
+    );
   </script>
 </div>
 
 Sidebar - 3
-<div id='div-gpt-ad-GA-3'>
+<div id="ad-11" class="adsInnovads_container">
   <script>
-    googletag.cmd.push(function () {
-      googletag.display('div-gpt-ad-GA-3');
-    });
+    loadBanner(
+      "/22697233968/gamesadda/RSB_3",
+      [300, 250],
+      "adsinnov-" + _num_inserted_banners, false,
+    );
   </script>
 </div>
 
+
 Sidebar - 4
-<div id='div-gpt-ad-GA-4'>
+<div id="ad-12" class="adsInnovads_container">
   <script>
-    googletag.cmd.push(function () {
-      googletag.display('div-gpt-ad-GA-4');
-    });
+    loadBanner(
+      "/22697233968/gamesadda/RSB_4",
+      [300, 250],
+      "adsinnov-" + _num_inserted_banners, false,
+    );
   </script>
 </div>
 
 LSB Sticky
-<div id='div-gpt-ad-GA-5'>
+<div id="ad-13" class="adsInnovads_container">
   <script>
-    googletag.cmd.push(function () {
-      googletag.display('div-gpt-ad-GA-5');
-    });
+    loadBanner(
+      "/22697233968/gamesadda/LSB_sticky",
+      [160, 600],
+      "adsinnov-" + _num_inserted_banners, false,
+    );
   </script>
 </div>
 
 RSB Sticky
-<div id='div-gpt-ad-GA-6'>
+<div id="ad-14" class="adsInnovads_container">
   <script>
-    googletag.cmd.push(function () {
-      googletag.display('div-gpt-ad-GA-6');
-    });
+    loadBanner(
+      "/22697233968/gamesadda/RSB_sticky",
+      [160, 600],
+      "adsinnov-" + _num_inserted_banners, false,
+    );
   </script>
 </div>
-
+<----------------------------------------------  Body Ad Code ------------------------------------------------------->
