@@ -1,6 +1,6 @@
 <-----------------  Head Ad Code ----------------------------------------------->
 
-<script>
+ <script>
     var googletag = googletag || {};
     googletag.cmd = googletag.cmd || [];
     (function () {
@@ -20,7 +20,7 @@
     (function () {
       var REFRESH_KEY = "refresh";
       var REFRESH_VALUE = "true";
-      var SECONDS_TO_WAIT_AFTER_VIEWABILITY = Math.floor(Math.random() * (35 - 25 + 1)) + 25;
+      var SECONDS_TO_WAIT_AFTER_VIEWABILITY = 30;
 
       function setupGoogleTag() {
         googletag
@@ -50,14 +50,30 @@
         refresh,
         adType
       ) {
-        var containerDivs = document.querySelectorAll(
-          ".adsInnovads_container"
-        );
-        var containerDiv = document.createElement("div");
+        const containerDiv = document.createElement("div");
         containerDiv.id = containerId;
         containerDiv.className = "adsinnov_ads_container";
 
-        containerDivs[_num_inserted_banners].append(containerDiv);
+        function get_Id_form_div(div_ids) {
+          try {
+            const get_div_Id = document.getElementById(div_ids);
+            get_div_Id.append(containerDiv);
+            get_div_Id.removeAttribute('id');
+          } catch (err) {
+            console.log(err.message);
+          }
+        }
+
+        get_Id_form_div("ad-1");
+        get_Id_form_div("ad-2");
+        get_Id_form_div("ad-3");
+        get_Id_form_div("ad-4");
+        get_Id_form_div("ad-5");
+        get_Id_form_div("ad-6");
+        get_Id_form_div("ad-7");
+        get_Id_form_div("ad-8");
+        get_Id_form_div("ad-9");
+        get_Id_form_div("ad-10");
 
         googletag.cmd.push(function () {
           var sizeMap = {
@@ -87,6 +103,11 @@
                 ]
               )
               .build(),
+            Sidebar_Ad: googletag
+              .sizeMapping()
+              .addSize([992, 0], [[120, 600]])
+              .addSize([0, 0], [])
+              .build()
           };
 
           var adSizeMapping = sizeMap[adType];
@@ -112,9 +133,10 @@
 
 <-----------------  Body Ad Code ----------------------------------------------->
 
+
   Leaderboard
 
-  <div class="adsInnovads_container">
+  <div id="ad-1" class="adsInnovads_container">
       <script>
         loadBanner(
           "/22697233968/gamertweak/leaderboard",
@@ -125,7 +147,7 @@
   </div>
 
   ATF
-    <div class="adsInnovads_container">
+    <div id="ad-2" class="adsInnovads_container">
       <script>
         loadBanner(
           "/22697233968/gamertweak/ATF",
@@ -136,7 +158,7 @@
     </div>
 
    MTF_1
-    <div class="adsInnovads_container">
+    <div id="ad-3" class="adsInnovads_container">
       <script>
         loadBanner(
           "/22697233968/gamertweak/MTF_1",
@@ -147,7 +169,7 @@
     </div>
 
    MTF_2
-    <div class="adsInnovads_container">
+    <div id="ad-4" class="adsInnovads_container">
       <script>
         loadBanner(
           "/22697233968/gamertweak/MTF_2",
@@ -158,10 +180,10 @@
     </div>
 
    MTF_3
-    <div class="adsInnovads_container">
+    <div id="ad-5" class="adsInnovads_container">
       <script>
         loadBanner(
-          "/22697233968/gamesadda/MTF_3",
+          "/22697233968/gamertweak/MTF_3",
           [300, 250],
           "adsinnov-" + _num_inserted_banners, false, "Responsive_Ad"
         );
@@ -169,7 +191,7 @@
     </div>
 
    MTF_4
-    <div class="adsInnovads_container">
+    <div id="ad-6" class="adsInnovads_container">
       <script>
         loadBanner(
           "/22697233968/gamertweak/MTF_4",
@@ -180,7 +202,7 @@
     </div>
 
     MTF_5
-    <div class="adsInnovads_container">
+    <div id="ad-7" class="adsInnovads_container">
       <script>
         loadBanner(
           "/22697233968/gamertweak/MTF_5",
@@ -213,7 +235,7 @@
       }
     }
   </style>
-  <div class='EujfCqUhLFJr98nr'>
+  <div id="ad-8" class='EujfCqUhLFJr98nr'>
     <div class="adsInnovads_container">
       <script>
         loadBanner(
@@ -224,3 +246,70 @@
       </script>
     </div>
   </div>
+
+Sidebar - 1
+<div id="ad-9" class="adsInnovads_container">
+  <script>
+    loadBanner(
+      "/22697233968/gamertweak/RSB_1",
+      [300, 250],
+      "adsinnov-" + _num_inserted_banners, false,
+    );
+  </script>
+</div>
+
+Sidebar - 2
+<div id="ad-10" class="adsInnovads_container">
+  <script>
+    loadBanner(
+      "/22697233968/gamertweak/RSB_2",
+      [300, 250],
+      "adsinnov-" + _num_inserted_banners, false,
+    );
+  </script>
+</div>
+
+Sidebar - 3
+<div id="ad-11" class="adsInnovads_container">
+  <script>
+    loadBanner(
+      "/22697233968/gamertweak/RSB_3",
+      [300, 250],
+      "adsinnov-" + _num_inserted_banners, false,
+    );
+  </script>
+</div>
+
+
+Sidebar - 4
+<div id="ad-12" class="adsInnovads_container">
+  <script>
+    loadBanner(
+      "/22697233968/gamertweak/RSB_4",
+      [300, 250],
+      "adsinnov-" + _num_inserted_banners, false,
+    );
+  </script>
+</div>
+
+LSB Sticky
+<div id="ad-13" class="adsInnovads_container">
+  <script>
+    loadBanner(
+      "/22697233968/gamertweak/LSB_sticky",
+      [160, 600],
+      "adsinnov-" + _num_inserted_banners, false,
+    );
+  </script>
+</div>
+
+RSB Sticky
+<div id="ad-14" class="adsInnovads_container">
+  <script>
+    loadBanner(
+      "/22697233968/gamertweak/RSB_sticky",
+      [160, 600],
+      "adsinnov-" + _num_inserted_banners, false,
+    );
+  </script>
+</div>

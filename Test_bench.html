@@ -115,6 +115,11 @@
                 ]
               )
               .build(),
+            Sidebar_Ad: googletag
+              .sizeMapping()
+              .addSize([992, 0], [[120, 600]])
+              .addSize([0, 0], [])
+              .build()
           };
 
           var adSizeMapping = sizeMap[adType];
@@ -303,7 +308,7 @@
     loadBanner(
       "/21742552194/NueGamers/MTF_3",
       [300, 250],
-      "adsinnov-" + _num_inserted_banners, false, "Responsive_Ad"
+      "adsinnov-" + _num_inserted_banners, false, "Sidebar_Ad"
     );
   </script>
 </div>
