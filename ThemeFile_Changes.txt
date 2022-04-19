@@ -1,0 +1,20 @@
+
+-----------------------------------For Mobile ------------------------------
+
+Views > General > Post > content-ajax.php
+
+Search For - <div class="ajax-post-content">
+
+Paste below lines after that
+
+  if (check === true){
+    displayAds();
+    console.log('This is Mobile Browser');
+  }
+---------------------------------- For Desktop -----------------
+
+theme.js and theme.min.js
+
+Search For - console.log('1');
+
+Paste this - console.log('Adding New Page In The Infinite Scroll');displayAds();

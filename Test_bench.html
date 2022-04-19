@@ -62,12 +62,13 @@
         refresh,
         adType
       ) {
-        const containerDiv = document.createElement("div");
-        containerDiv.id = containerId;
-        containerDiv.className = "adsinnov_ads_container";
+
 
         function get_Id_form_div(div_ids) {
           try {
+            const containerDiv = document.createElement("div");
+            containerDiv.id = containerId;
+            containerDiv.className = "adsinnov_ads_container";
             const get_div_Id = document.getElementById(div_ids);
             get_div_Id.append(containerDiv);
             get_div_Id.removeAttribute('id');
@@ -75,17 +76,6 @@
             console.log(err.message);
           }
         }
-
-        get_Id_form_div("ad-1");
-        get_Id_form_div("ad-2");
-        get_Id_form_div("ad-3");
-        get_Id_form_div("ad-4");
-        get_Id_form_div("ad-5");
-        get_Id_form_div("ad-6");
-        get_Id_form_div("ad-7");
-        get_Id_form_div("ad-8");
-        get_Id_form_div("ad-9");
-        get_Id_form_div("ad-10");
 
         googletag.cmd.push(function () {
           var sizeMap = {
@@ -134,11 +124,27 @@
           }
 
           slot.addService(googletag.pubads());
-          googletag.display(containerId);
+
+          //googletag.display(containerId);
+          googletag.pubads().refresh([slot]);
         });
+
+        get_Id_form_div("ad-1");
+        get_Id_form_div("ad-2");
+        get_Id_form_div("ad-3");
+        get_Id_form_div("ad-4");
+        get_Id_form_div("ad-5");
+        get_Id_form_div("ad-6");
+        get_Id_form_div("ad-7");
+        get_Id_form_div("ad-8");
+        get_Id_form_div("ad-9");
+        get_Id_form_div("ad-10");
 
         _num_inserted_banners++;
       };
+
+      var xc = document.querySelectorAll("[data-ads-slot]")
+      console.log(xc);
     })();
   </script>
 
@@ -147,7 +153,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background-color: #FFFFFF;
+      background-color: transparent;
       height: 90px;
       position: fixed;
       left: 0;
@@ -191,7 +197,7 @@
   Lorem Ipsum.
 </p>
 
-<div id="ad-1" class="adsInnovads_container">
+<div id="ad-1" class="adsInnovads_container" data-ads-slot="jatin">
   <script>
     loadBanner(
       "/21742552194/NueGamers/MTF_3",
