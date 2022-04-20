@@ -168,16 +168,19 @@
       place-items: center;
       justify-content: center;
       text-align: center;
+
     }
 
     .AdsInnov_responsive_ad {
       width: 728px;
       height: 90px;
+      background-color: lightgrey;
     }
 
     .Sidebar_Ad {
       min-width: 120px;
       height: 600px;
+      background-color: lightgrey;
     }
 
     @media only screen and (max-width: 600px) {
