@@ -199,201 +199,125 @@
 
 <-----------------  Body Ad Code ----------------------------------------------->
 
+ Leaderboard
 
-Sidebar_Ad
-
-  Leaderboard
-
-  <div id="ad-1" class="adsInnovads_container">
-      <script>
-        loadBanner(
-          "/22697233968/gamertweak/leaderboard",
-          [300, 250],
-          "adsinnov-" + _num_inserted_banners, false, "Responsive_Ad"
-        );
-      </script>
-  </div>
-
-  ATF
-    <div id="ad-2" class="adsInnovads_container">
-      <script>
-        loadBanner(
-          "/22697233968/gamertweak/ATF",
-          [300, 250],
-          "adsinnov-" + _num_inserted_banners, false, "Responsive_Ad"
-        );
-      </script>
-    </div>
-
-   MTF_1
-    <div id="ad-3" class="adsInnovads_container">
-      <script>
-        loadBanner(
-          "/22697233968/gamertweak/MTF_1",
-          [300, 250],
-          "adsinnov-" + _num_inserted_banners, false, "Responsive_Ad"
-        );
-      </script>
-    </div>
-
-   MTF_2
-    <div id="ad-4" class="adsInnovads_container">
-      <script>
-        loadBanner(
-          "/22697233968/gamertweak/MTF_2",
-          [300, 250],
-          "adsinnov-" + _num_inserted_banners, false, "Responsive_Ad"
-        );
-      </script>
-    </div>
-
-   MTF_3
-    <div id="ad-5" class="adsInnovads_container">
-      <script>
-        loadBanner(
-          "/22697233968/gamertweak/MTF_3",
-          [300, 250],
-          "adsinnov-" + _num_inserted_banners, false, "Responsive_Ad"
-        );
-      </script>
-    </div>
-
-   MTF_4
-    <div id="ad-6" class="adsInnovads_container">
-      <script>
-        loadBanner(
-          "/22697233968/gamertweak/MTF_4",
-          [300, 250],
-          "adsinnov-" + _num_inserted_banners, false, "Responsive_Ad"
-        );
-      </script>
-    </div>
-
-    MTF_5
-    <div id="ad-7" class="adsInnovads_container">
-      <script>
-        loadBanner(
-          "/22697233968/gamertweak/MTF_5",
-          [300, 250],
-          "adsinnov-" + _num_inserted_banners, false, "Responsive_Ad"
-        );
-      </script>
-    </div>
-
-  Bottom Overlay
-
-   <style>
-    .EujfCqUhLFJr98nr {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background-color: #FFFFFF;
-      height: 90px;
-      position: fixed;
-      left: 0;
-      bottom: 0;
-      width: 100%;
-      text-align: center;
-      z-index: 99999;;
-    }
-
-    @media only screen and (max-width: 600px) {
-      .EujfCqUhLFJr98nr {
-        height: 50px !important;
-      }
-    }
-  </style>
-  <div id="ad-8" class='EujfCqUhLFJr98nr'>
-    <div class="adsInnovads_container">
-      <script>
-        loadBanner(
-          "/22697233968/gamertweak/bottomoverlay",
-          [300, 250],
-          "adsinnov-" + _num_inserted_banners, true, "Sticky_Ad"
-        );
-      </script>
-    </div>
-  </div>
-
-
-<div id="ad-8" class='EujfCqUhLFJr98nr'>
-    <div class="adsInnovads_container">
-      <script>
-        loadBanner(
-          "/22697233968/gamertweak/bottomoverlay",
-          [300, 250],
-          "adsinnov-" + _num_inserted_banners, true, "Sticky_Ad"
-        );
-      </script>
-    </div>
-  </div>
-
-
-
-
-Sidebar - 1
-<div id="ad-9" class="adsInnovads_container">
-  <script>
-    loadBanner(
-      "/22697233968/gamertweak/RSB_1",
-      [300, 250],
-      "adsinnov-" + _num_inserted_banners, false,
-    );
-  </script>
-</div>
-
-Sidebar - 2
-<div id="ad-10" class="adsInnovads_container">
-  <script>
-    loadBanner(
-      "/22697233968/gamertweak/RSB_2",
-      [300, 250],
-      "adsinnov-" + _num_inserted_banners, false,
-    );
-  </script>
-</div>
-
-Sidebar - 3
-<div id="ad-11" class="adsInnovads_container">
-  <script>
-    loadBanner(
-      "/22697233968/gamertweak/RSB_3",
-      [300, 250],
-      "adsinnov-" + _num_inserted_banners, false,
-    );
-  </script>
+  <div class="bannerdiv ">
+  <div class="AdsInnov_responsive_ad" data-adslot="/22697233968/gamertweak/leaderboard" data-size="[300,250]"
+       data-ad-refresh=false
+       data-ad-type="Responsive_Ad"></div>
 </div>
 
 
-Sidebar - 4
-<div id="ad-12" class="adsInnovads_container">
-  <script>
-    loadBanner(
-      "/22697233968/gamertweak/RSB_4",
-      [300, 250],
-      "adsinnov-" + _num_inserted_banners, false,
-    );
-  </script>
+RHS STICKY (NM)
+
+<div class="bannerdiv ">
+  <div class="Sidebar_Ad" data-adslot="/22697233968/gamertweak/RSB_sticky" data-size="[300,250]" data-ad-refresh=false
+       data-ad-type="Sidebar_Ad"></div>
 </div>
 
-LSB Sticky
-<div id="ad-13" class="adsInnovads_container">
-  <script>
-    loadBanner(
-      "/22697233968/gamertweak/LSB_sticky",
-      [160, 600],
-      "adsinnov-" + _num_inserted_banners, false,
-    );
-  </script>
+LHS STICKY (NM)
+
+<div class="bannerdiv ">
+  <div class="Sidebar_Ad" data-adslot="/22697233968/gamertweak/LSB_sticky" data-size="[300,250]" data-ad-refresh=false
+       data-ad-type="Sidebar_Ad"></div>
 </div>
 
-RSB Sticky
-<div id="ad-14" class="adsInnovads_container">
-  <script>
-    loadBanner(
-      "/22697233968/gamertweak/RSB_sticky",
-      [160, 600],
-      "adsinnov-" + _num_inserted_banners, false,
-    );
-  </script>
+Bottom Overlay
+<div class="EujfCqUhLFJr98nr">
+  <div data-adslot="/22697233968/gamertweak/bottomoverlay" data-size="[300,250]" data-ad-refresh=true
+       data-ad-type="Sticky_Ad"></div>
 </div>
+
+ATF
+
+<div class="bannerdiv ">
+  <div class="AdsInnov_responsive_ad" data-adslot="/22697233968/gamertweak/ATF" data-size="[300,250]"
+       data-ad-refresh=false
+       data-ad-type="Responsive_Ad"></div>
+</div>
+
+MTF_1
+
+<div class="bannerdiv ">
+  <div class="AdsInnov_responsive_ad" data-adslot="/22697233968/gamertweak/MTF_1" data-size="[300,250]"
+       data-ad-refresh=false
+       data-ad-type="Responsive_Ad"></div>
+</div>
+
+MTF_2
+
+<div class="bannerdiv ">
+  <div class="AdsInnov_responsive_ad" data-adslot="/22697233968/gamertweak/MTF_2" data-size="[300,250]"
+       data-ad-refresh=false
+       data-ad-type="Responsive_Ad"></div>
+</div>
+
+MTF_3
+
+<div class="bannerdiv ">
+  <div class="AdsInnov_responsive_ad" data-adslot="/22697233968/gamertweak/MTF_3" data-size="[300,250]"
+       data-ad-refresh=false
+       data-ad-type="Responsive_Ad"></div>
+</div>
+
+MTF_4
+
+<div class="bannerdiv ">
+  <div class="AdsInnov_responsive_ad" data-adslot="/22697233968/gamertweak/MTF_4" data-size="[300,250]"
+       data-ad-refresh=false
+       data-ad-type="Responsive_Ad"></div>
+</div>
+
+MTF_5
+
+<div class="bannerdiv ">
+  <div class="AdsInnov_responsive_ad" data-adslot="/22697233968/gamertweak/MTF_5" data-size="[300,250]"
+       data-ad-refresh=false
+       data-ad-type="Responsive_Ad"></div>
+</div>
+
+MTF_6
+
+<div class="bannerdiv ">
+  <div class="AdsInnov_responsive_ad" data-adslot="/22697233968/gamertweak/MTF_6" data-size="[300,250]"
+       data-ad-refresh=false
+       data-ad-type="Responsive_Ad"></div>
+</div>
+
+
+BTF
+
+<div class="bannerdiv ">
+  <div class="AdsInnov_responsive_ad" data-adslot="/22697233968/gamertweak/BTF" data-size="[300,250]"
+       data-ad-refresh=false
+       data-ad-type="Responsive_Ad"></div>
+</div>
+
+Sidebar_1
+
+<div class="bannerdiv ">
+  <div class="Sidebar_non_sticky_ad" data-adslot="/22697233968/Technclub/RSB_1" data-size="[300,600]"
+       data-ad-refresh=false></div>
+</div>
+
+Sidebar_2
+
+<div class="bannerdiv ">
+  <div class="Sidebar_non_sticky_ad" data-adslot="/22697233968/Technclub/RSB_2" data-size="[300,250]"
+       data-ad-refresh=false></div>
+</div>
+
+Sidebar_3
+
+<div class="bannerdiv">
+  <div class="Sidebar_non_sticky_ad" data-adslot="/22697233968/Technclub/RSB_3" data-size="[300,250]"
+       data-ad-refresh=false></div>
+</div>
+
+Sidebar_4
+
+<div class="bannerdiv">
+  <div class="Sidebar_non_sticky_ad" data-adslot="/22697233968/Technclub/RSB_4" data-size="[300,250]"
+       data-ad-refresh=false></div>
+</div>
+

@@ -51,7 +51,7 @@ AMP BTF
 
 AMP BottomOverlay
 
-<amp-ad width=300 height=250
+<amp-ad width=320 height=50
     type="doubleclick"
     data-slot="/22697233968/AMP_gamertweak/bottomoverlay">
 </amp-ad>
