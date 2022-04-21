@@ -324,3 +324,17 @@ Sidebar_4
        data-ad-refresh=false></div>
 </div>
 
+Sidebar_5
+
+<div class="bannerdiv">
+  <div class="Sidebar_non_sticky_ad" data-adslot="/22697233968/gamertweak/RSB_5" data-size="[300,250]"
+       data-ad-refresh=false></div>
+</div>
+
+Sidebar_6
+
+<div class="bannerdiv">
+  <div class="Sidebar_non_sticky_ad" data-adslot="/22697233968/gamertweak/RSB_6" data-size="[300,250]"
+       data-ad-refresh=false></div>
+</div>
+
