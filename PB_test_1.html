@@ -137,6 +137,12 @@
 
     window.addEventListener('load', function () {
       displayAds();
+      console.log( "Onload :" + Date.now());
+    });
+
+    window.addEventListener('DOMContentLoaded',function () {
+      displayAds();
+      console.log("DOM :" + Date.now());
     });
 
     var check = false;

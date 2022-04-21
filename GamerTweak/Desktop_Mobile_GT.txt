@@ -299,28 +299,28 @@ BTF
 Sidebar_1
 
 <div class="bannerdiv ">
-  <div class="Sidebar_non_sticky_ad" data-adslot="/22697233968/Technclub/RSB_1" data-size="[300,600]"
+  <div class="Sidebar_non_sticky_ad" data-adslot="/22697233968/gamertweak/RSB_1" data-size="[300,600]"
        data-ad-refresh=false></div>
 </div>
 
 Sidebar_2
 
 <div class="bannerdiv ">
-  <div class="Sidebar_non_sticky_ad" data-adslot="/22697233968/Technclub/RSB_2" data-size="[300,250]"
+  <div class="Sidebar_non_sticky_ad" data-adslot="/22697233968/gamertweak/RSB_2" data-size="[300,250]"
        data-ad-refresh=false></div>
 </div>
 
 Sidebar_3
 
 <div class="bannerdiv">
-  <div class="Sidebar_non_sticky_ad" data-adslot="/22697233968/Technclub/RSB_3" data-size="[300,250]"
+  <div class="Sidebar_non_sticky_ad" data-adslot="/22697233968/gamertweak/RSB_3" data-size="[300,250]"
        data-ad-refresh=false></div>
 </div>
 
 Sidebar_4
 
 <div class="bannerdiv">
-  <div class="Sidebar_non_sticky_ad" data-adslot="/22697233968/Technclub/RSB_4" data-size="[300,250]"
+  <div class="Sidebar_non_sticky_ad" data-adslot="/22697233968/gamertweak/RSB_4" data-size="[300,250]"
        data-ad-refresh=false></div>
 </div>
 
