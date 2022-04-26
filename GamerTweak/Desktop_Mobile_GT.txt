@@ -223,6 +223,15 @@
       min-width: 120px;
       min-height: 600px;
     }
+     @media (max-width: 1380px) {
+      .sticky_ad_left {
+        display: none !important;
+      }
+
+      .sticky_ad_right {
+        display: none !important;
+      }
+    }
   </style>
 
 <-----------------  Body Ad Code ----------------------------------------------->
