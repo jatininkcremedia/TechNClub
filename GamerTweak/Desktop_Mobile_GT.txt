@@ -206,7 +206,7 @@
     }
     .sticky_ad_right {
       position: fixed;
-      top: 202px;
+      top: 160px;
       right: 5px;
       z-index: 9999;
       background-color: lightgray;
@@ -216,7 +216,7 @@
 
     .sticky_ad_left {
       position: fixed;
-      top: 202px;
+      top: 160px;
       left: 5px;
       z-index: 9999;
       background-color: lightgray;
