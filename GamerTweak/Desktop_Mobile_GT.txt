@@ -89,9 +89,9 @@
                     .build(),
                   Sidebar_Ad: googletag
                     .sizeMapping()
-                    .addSize([1500, 0], [[300, 600]])
-                    .addSize([1300, 0], [[160, 600]])
-                    .addSize([992, 0], [[120, 600]])
+                    .addSize([1760, 0], [[300, 600]])
+                    .addSize([1470, 0], [[160, 600]])
+                    .addSize([1380, 0], [[120, 600]])
                     .addSize([0, 0], [])
                     .build()
                 };
@@ -204,7 +204,25 @@
       display: none;
     }
     }
+    .sticky_ad_right {
+      position: fixed;
+      top: 202px;
+      right: 5px;
+      z-index: 9999;
+      background-color: lightgray;
+      min-width: 120px;
+      min-height: 600px;
+    }
 
+    .sticky_ad_left {
+      position: fixed;
+      top: 202px;
+      left: 5px;
+      z-index: 9999;
+      background-color: lightgray;
+      min-width: 120px;
+      min-height: 600px;
+    }
   </style>
 
 <-----------------  Body Ad Code ----------------------------------------------->
@@ -220,15 +238,17 @@
 
 RHS STICKY (NM)
 
-<div class="bannerdiv ">
-  <div class="Sidebar_Ad" data-adslot="/22697233968/gamertweak/RSB_sticky" data-size="[300,250]" data-ad-refresh=false
+<div class="sticky_ad_right">
+  <div data-adslot="/22697233968/gamertweak/RSB_sticky" data-size="[300,250]" data-ad-refresh=false
        data-ad-type="Sidebar_Ad"></div>
 </div>
 
+
+
 LHS STICKY (NM)
 
-<div class="bannerdiv ">
-  <div class="Sidebar_Ad" data-adslot="/22697233968/gamertweak/LSB_sticky" data-size="[300,250]" data-ad-refresh=false
+<div class="sticky_ad_left">
+  <div data-adslot="/22697233968/gamertweak/LSB_sticky" data-size="[300,250]" data-ad-refresh=false
        data-ad-type="Sidebar_Ad"></div>
 </div>
 
