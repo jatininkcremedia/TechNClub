@@ -21,7 +21,6 @@ googletag.cmd.push(function () {
   googletag.pubads().addEventListener("impressionViewable", function (event) {
     var slot = event.slot;
     var slotId = event.slot.getSlotId().getName();
-    console.log(slot);
     if (slot.getTargeting(REFRESH_KEY).indexOf(REFRESH_VALUE) > -1) {
       setTimeout(function () {
         refreshBid(slot, slotId);
@@ -62,10 +61,6 @@ function getDeviceType() {
 
 var PREBID_TIMEOUT = 1500;
 var FAILSAFE_TIMEOUT = 2000;
-var desktopSizes = [[970, 90], [728, 90], [300, 250]];
-var phoneSizes = [[300, 250], [300, 100]];
-var tabletSizes = [[728, 90], [300, 250]];
-var allSizes = [[1000, 300], [970, 90], [728, 90], [300, 250]];
 
 var pbjs = pbjs || {};
 pbjs.que = pbjs.que || [];
@@ -135,27 +130,6 @@ function prebid() {
 
 function constructAds() {
   try {
-    //prebid();
-
-
-    /*var pbjs = pbjs || {};
-     pbjs.que = pbjs.que || [];
-
-     pbjs.que.push(function() {
-         pbjs.addAdUnits(prebidAdUnits);
-         pbjs.requestBids({
-             bidsBackHandler: initAdserver,
-             timeout: PREBID_TIMEOUT
-         });
-     });
-
-
-     // in case PBJS doesn't load
-     setTimeout(function() {
-         initAdserver();
-     }, FAILSAFE_TIMEOUT);*/
-
-
     var allAds = document.querySelectorAll("div[data-adslot]");
     if (allAds.length > 0) {
       allAds.forEach(function (ele) {
@@ -181,8 +155,6 @@ function constructAds() {
             }
 
             slot.addService(googletag.pubads());
-            //googletag.defineSlot(adSlot, adSize, divId).addService(googletag.pubads());
-            //googletag.pubads().enableSingleRequest();
             googletag.enableServices();
           });
         }
@@ -221,7 +193,6 @@ async function displayAds() {
 
 window.addEventListener('DOMContentLoaded', function () {
   displayAds();
-  //setTimeout(function(){sendPreBidCall();},1000);
 });
 
 function fetchNewArticle() {
@@ -232,7 +203,6 @@ function fetchNewArticle() {
       })
       .then((html) => {
         document.body.insertAdjacentHTML('beforeend', html);
-        //document.getElementById('loading').style.display = 'none';
       })
       .then(function () {
         pbjs.initAdserverSet = false;
