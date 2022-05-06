@@ -64,10 +64,10 @@
                 var sizeMap = {
                   Responsive_Ad: googletag
                     .sizeMapping()
-                    .addSize([992, 0], [[728, 90]])
-                    .addSize([768, 0], [[300, 250]])
-                    .addSize([320, 0], [[300, 250]])
-                    .addSize(
+                    .addSize([992, 0], [[728, 90]]) // Desktop
+                    .addSize([768, 0], [[300, 250]]) // Tablet
+                    .addSize([320, 0], [[300, 250]]) // Mobile
+                    .addSize( // others
                       [0, 0],
                       [
                         [320, 50],
@@ -213,7 +213,7 @@
 
 <p>
 <div class="bannerdiv ">
-  <div class="AdsInnov_responsive_ad" data-adslot="/21742552194/NueGamers/MTF_1" data-size="[300,250]"
+  <div class="AdsInnov_responsive_ad" data-adslot="/21742552194/NueGamers/MTF_1" data-size="[[300,250],[728,90]]"
        data-ad-refresh=true
        data-ad-type="Responsive_Ad"></div>
 </div>
