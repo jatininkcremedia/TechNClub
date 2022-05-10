@@ -22,6 +22,7 @@ googletag.cmd.push(function () {
   googletag.pubads().addEventListener("impressionViewable", function (event) {
     var slot = event.slot;
     var slotId = event.slot.getSlotId().getName();
+    console.log(slot);
     if (slot.getTargeting(REFRESH_KEY).indexOf(REFRESH_VALUE) > -1) {
       setTimeout(function () {
         refreshBid(slot, slotId);
@@ -62,6 +63,10 @@ function getDeviceType() {
 
 var PREBID_TIMEOUT = 1500;
 var FAILSAFE_TIMEOUT = 2000;
+var desktopSizes = [[970, 90], [728, 90], [300, 250]];
+var phoneSizes = [[300, 250], [300, 100]];
+var tabletSizes = [[728, 90], [300, 250]];
+var allSizes = [[1000, 300], [970, 90], [728, 90], [300, 250]];
 
 var pbjs = pbjs || {};
 pbjs.que = pbjs.que || [];
@@ -85,20 +90,25 @@ function prebid() {
     if (allAds.length > 0) {
       allAds.forEach(function (ele) {
         var adSlot = ele.getAttribute('data-adslot');
-        //var adSize = JSON.parse(ele.getAttribute('data-size'));
+        var adSize = JSON.parse(ele.getAttribute('data-size'));
         let r = (Math.random() + 1).toString(36).substring(7);
         ele.setAttribute('id', r);
         if (getDeviceType() == "desktop") {
-          adSize = JSON.parse(ele.getAttribute('data-size'));
+          desktopSizes = JSON.parse(ele.getAttribute('data-size'));
         }
         if (getDeviceType() == "mobile") {
-          adSize = JSON.parse(ele.getAttribute('data-size-mobile'));
+          phoneSizes = JSON.parse(ele.getAttribute('data-size-mobile'));
         }
         var objPrebid = { //prebid
           code: adSlot,
           mediaTypes: {
             banner: {
-              sizes: adSize
+              sizeConfig: [
+                {minViewPort: [0, 0], sizes: phoneSizes},
+                {minViewPort: [768, 0], sizes: tabletSizes},
+                {minViewPort: [1200, 0], sizes: desktopSizes},
+                {minViewPort: [1600, 0], sizes: allSizes}
+              ]
             }
           },
           bids: [{
@@ -112,6 +122,29 @@ function prebid() {
       });
 
       pbjs.que.push(function () {
+        /*pbjs.setConfig({
+          debug: true,
+          cache: {
+            url: false
+          },
+
+        });*/
+        /*pbjs.setConfig({
+            sizeConfig: [{
+               mediaQuery: '(min-width: 1200px)',
+               sizesSupported: [[970,90], [728,90], [300,250], [160,600]],
+               labels: [ "display"]
+             }, {
+               mediaQuery: '(min-width: 768px) and (max-width: 1199px)',
+               sizesSupported: [[468,60], [300,250], [160,600]],
+               labels: [ "tablet"]
+             }, {
+               mediaQuery: '(min-width: 0px) and (max-width: 767px)',
+               sizesSupported: [[300,50],[320,50],[120,20],[168,28]],
+               labels: [ "phone"]
+            }]
+          });*/
+
         pbjs.addAdUnits(prebidAdUnits);
         pbjs.requestBids({
           timeout: PREBID_TIMEOUT,
@@ -131,6 +164,27 @@ function prebid() {
 
 function constructAds() {
   try {
+    //prebid();
+
+
+    /*var pbjs = pbjs || {};
+     pbjs.que = pbjs.que || [];
+
+     pbjs.que.push(function() {
+         pbjs.addAdUnits(prebidAdUnits);
+         pbjs.requestBids({
+             bidsBackHandler: initAdserver,
+             timeout: PREBID_TIMEOUT
+         });
+     });
+
+
+     // in case PBJS doesn't load
+     setTimeout(function() {
+         initAdserver();
+     }, FAILSAFE_TIMEOUT);*/
+
+
     var allAds = document.querySelectorAll("div[data-adslot]");
     if (allAds.length > 0) {
       allAds.forEach(function (ele) {
@@ -157,6 +211,8 @@ function constructAds() {
             }
 
             slot.addService(googletag.pubads());
+            //googletag.defineSlot(adSlot, adSize, divId).addService(googletag.pubads());
+            //googletag.pubads().enableSingleRequest();
             googletag.enableServices();
           });
         }
@@ -172,7 +228,6 @@ function constructAds() {
 async function displayAds() {
   try {
     await prebid();
-
     await constructAds();
     var allAds = document.querySelectorAll("div[data-adslot]");
     if (allAds.length > 0) {
@@ -187,7 +242,7 @@ async function displayAds() {
         }
 
       });
-
+      //currentPageSlots =[];
     }
   } catch (e) {
     console.log("displayAds:" + e);
@@ -196,6 +251,7 @@ async function displayAds() {
 
 window.addEventListener('DOMContentLoaded', function () {
   displayAds();
+  //setTimeout(function(){sendPreBidCall();},1000);
 });
 
 function fetchNewArticle() {
@@ -206,11 +262,13 @@ function fetchNewArticle() {
       })
       .then((html) => {
         document.body.insertAdjacentHTML('beforeend', html);
+        //document.getElementById('loading').style.display = 'none';
       })
       .then(function () {
         window.currentPageSlots = [];
         pbjs.initAdserverSet = false;
         displayAds();
+        //prebid();
       });
   } catch (e) {
     console.log("fetchNewArticle:" + e);
@@ -229,43 +287,3 @@ window.onscroll = function (ev) {
     }
   }
 };
-
-// Here Start The Google Analytics
-
-(function (i, r) {
-  i['GoogleAnalyticsObject'] = r;
-  i[r] = i[r] || function () {
-    (i[r].q = i[r].q || []).push(arguments)
-  }, i[r].l = 1 * new Date();
-})(window, 'ga');
-ga('create', 'UA-197881310-1', 'auto');
-ga('send', 'pageview');
-
-document.addEventListener('scroll', function () {
-
-  var h = document.documentElement,
-    b = document.body,
-    st = 'scrollTop',
-    sh = 'scrollHeight';
-
-  var percent = (h[st] || b[st]) / ((h[sh] || b[sh]) - h.clientHeight) * 100;
-
-  //document.getElementById('scroll').textContent = 'scrolled: ' + percent.toFixed(0) + '%';
-  sessionStorage.setItem("Percentage_Scroll", percent.toFixed(0) + '%');
-});
-
-window.addEventListener('beforeunload', function () {
-  var percentage_Scrolled = sessionStorage.getItem('Percentage_Scroll');
-  ga('send', 'event', 'Page_Scrolled', percentage_Scrolled);
-});
-
-function onVisible(element, callback) {
-  new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-      if (entry.intersectionRatio > 0) {
-        callback(element);
-        observer.disconnect();
-      }
-    });
-  }).observe(element);
-}

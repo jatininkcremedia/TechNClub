@@ -8,6 +8,8 @@ Search For - <div class="ajax-post-content">
 Paste below lines after that
 
   if (check === true){
+    window.currentPageSlots = [];
+    pbjs.initAdserverSet = false;
     displayAds();
     console.log('This is Mobile Browser');
   }
@@ -17,4 +19,4 @@ theme.js and theme.min.js
 
 Search For - console.log('1');
 
-Paste this - console.log('Adding New Page In The Infinite Scroll');displayAds();
+Paste this - console.log('Adding New Page In The Infinite Scroll');window.currentPageSlots = []; pbjs.initAdserverSet = false; displayAds();
