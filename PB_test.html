@@ -20,6 +20,22 @@
     })();
   </script>
   <script type='text/javascript'>
+
+    function getDeviceType() {
+      try {
+        var ua = navigator.userAgent;
+        if (/(tablet|ipad|playbook|silk)|(android(?!.*mobi))/i.test(ua)) {
+          return "tablet";
+        }
+        if (/Mobile|iP(hone|od)|Android|BlackBerry|IEMobile|Kindle|Silk-Accelerated|(hpw|web)OS|Opera M(obi|ini)/.test(ua)) {
+          return "mobile";
+        }
+        return "desktop";
+      } catch (e) {
+        console.log("getDeviceType:" + e);
+      }
+    }
+
     function constructAds() {
       try {
         var allAds = document.querySelectorAll("div[data-adslot]");
@@ -51,68 +67,24 @@
 
           allAds.forEach(function (ele) {
             var adSlot = ele.getAttribute('data-adslot');
-            var adSize = JSON.parse(ele.getAttribute('data-size'));
-            var adType = ele.getAttribute('data-ad-type');
             var refresh = ele.getAttribute('data-ad-refresh');
             let r = (Math.random() + 1).toString(36).substring(7);
             ele.setAttribute('id', r);
+            if (getDeviceType() == "desktop") {
+              adSize = JSON.parse(ele.getAttribute('data-size'));
+            }
+            if (getDeviceType() == "mobile") {
+              adSize = JSON.parse(ele.getAttribute('data-size-mobile'));
+            }
             if (typeof googletag != 'undefined') {
-
-
               googletag.cmd.push(function () {
-
-                var sizeMap = {
-                  Responsive_Ad: googletag
-                    .sizeMapping()
-                    .addSize([992, 0], [[728, 90]]) // Desktop
-                    .addSize([768, 0], [[300, 250]]) // Tablet
-                    .addSize([320, 0], [[300, 250]]) // Mobile
-                    .addSize( // others
-                      [0, 0],
-                      [
-                        [320, 50],
-                        [1, 1],
-                      ]
-                    )
-                    .build(),
-                  Sticky_Ad: googletag
-                    .sizeMapping()
-                    .addSize([992, 0], [[728, 90]])
-                    .addSize([768, 0], [[320, 50]])
-                    .addSize([320, 0], [[320, 50]])
-                    .addSize(
-                      [0, 0],
-                      [
-                        [320, 50],
-                        [1, 1],
-                      ]
-                    )
-                    .build(),
-                  Sidebar_Ad: googletag
-                    .sizeMapping()
-                    .addSize([1500, 0], [[300, 600]])
-                    .addSize([1300, 0], [[160, 600]])
-                    .addSize([992, 0], [[120, 600]])
-                    .addSize([0, 0], [])
-                    .build()
-                };
-
-                var adSizeMapping = sizeMap[adType];
                 var slot = googletag.defineSlot(adSlot, adSize, r);
-
-                if (adSizeMapping) {
-                  slot.defineSizeMapping(adSizeMapping);
-                }
-
                 if (refresh === 'true') {
-
                   slot.setTargeting(REFRESH_KEY, REFRESH_VALUE);
                 }
-
                 slot.addService(googletag.pubads());
               });
             }
-
           });
         }
       } catch (e) {
@@ -141,7 +113,6 @@
         console.log("displayAds:" + e);
       }
     }
-
 
 
     var check = false;
@@ -194,8 +165,8 @@
       }
 
       .Sidebar_Ad {
-      display: none;
-    }
+        display: none;
+      }
     }
 
   </style>
@@ -213,21 +184,16 @@
 
 <p>
 <div class="bannerdiv ">
-  <div class="AdsInnov_responsive_ad" data-adslot="/21742552194/NueGamers/MTF_1" data-size="[[300,250],[728,90]]"
-       data-ad-refresh=true
-       data-ad-type="Responsive_Ad"></div>
+  <div class="AdsInnov_responsive_ad" data-adslot="/21742552194/NueGamers/MTF_1" data-size="[728,90]"
+       data-size-mobile="[320,50]"
+       data-ad-refresh=true></div>
 </div>
 </p>
 
-<div class="bannerdiv ">
-  <div class="Sidebar_Ad" data-adslot="/22697233968/Technclub/RHS_sticky" data-size="[300,250]" data-ad-refresh=true
-       data-ad-type="Sidebar_Ad"></div>
-</div>
-
 
 <div class="EujfCqUhLFJr98nr">
-  <div data-adslot="/21742552194/NueGamers/bottomoverlay" data-size="[300,250]" data-ad-refresh=true
-       data-ad-type="Sticky_Ad"></div>
+  <div data-adslot="/21742552194/NueGamers/bottomoverlay" data-size="[728,90]"
+       data-size-mobile="[320,50]" data-ad-refresh=true></div>
 </div>
 
 Why do we use it?
@@ -238,7 +204,10 @@ editors now use Lorem Ipsum as their default model text, and a search for 'lorem
 still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose
 (injected humour and the like).
 
-
+<div class="bannerdiv ">
+  <div class="AdsInnov_responsive_ad" data-adslot="/21742552194/NueGamers/MTF_2" data-size="[728,90]"
+       data-size-mobile="[320,50]"></div>
+</div>
 Where does it come from?
 Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature
 from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia,
@@ -249,7 +218,8 @@ on the theory of ethics, very popular during the Renaissance. The first line of 
 amet..", comes from a line in section 1.10.32.
 <p>
 <div class="bannerdiv">
-  <div data-adslot="/21742552194/NueGamers/MTF_2" data-size="[300,250]" data-ad-refresh=false></div>
+  <div data-adslot="/21742552194/NueGamers/MTF_2" data-size="[728,90]"
+       data-size-mobile="[320,50]" data-ad-refresh=false></div>
 </div>
 </p>
 The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and
@@ -282,7 +252,9 @@ injected humour, or non-characteristic words etc.</p>
   purpose (injected humour and the like).
 <p>
 <div class="bannerdiv">
-  <div data-adslot="/7176/ET_Mweb/ET_Mweb_Affiliate/ET_Mweb_AFF_Mrec3" data-size="[300,250]"></div>
+  <div data-adslot="/21742552194/NueGamers/MTF_4" data-size="[728,90]"
+       data-size-mobile="[320,50]">
+  </div>
 </div>
 </p>
 Where does it come from?
@@ -310,8 +282,8 @@ injected humour, or non-characteristic words etc.</p>
 
 <script>
   window.addEventListener('load', function () {
-      displayAds();
-    });
+    displayAds();
+  });
 </script>
 
 </body>
